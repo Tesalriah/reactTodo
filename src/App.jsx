@@ -1,4 +1,6 @@
 import { useRef, useState } from 'react'
+import TodoList from './component/TodoList'
+import TodoWriteForm from './component/TodoWriteForm'
 
 function App() {
     const [todos, setTodo] = useState([
@@ -8,19 +10,9 @@ function App() {
     ])
     const lastId = useRef(3)
 
-    const doSubmit = (e) => {
-        e.preventDefault()
-        const todo = e.target.todo.value
-
-        if (todo == false) {
-            alert('할 일을 입력해주세요')
-            e.target.todo.focus()
-            return
-        }
-
-        setTodo([{ id: lastId.current + 1, text: todo, checked: false }, ...todos])
+    const addTodo = (text) => {
+        setTodo([{ id: lastId.current + 1, text, checked: false }, ...todos])
         lastId.current += 1
-        e.target.todo.value = ''
     }
 
     const deleteTodo = (selectedId) => {
@@ -33,22 +25,8 @@ function App() {
 
     return (
         <>
-            <form onSubmit={doSubmit}>
-                <input type="text" name="todo" autoComplete="off" />
-                <button type="submit">추가하기</button>
-            </form>
-            <ul>
-                {todos.map((todo, i) => (
-                    <li key={i}>
-                        <input type="checkbox" checked={todo.checked} onChange={() => toggleChecked(todo.id)} />
-                        {todo.text}
-                        {todo.id}
-                        <button type="button" onClick={() => deleteTodo(todo.id)}>
-                            삭제
-                        </button>
-                    </li>
-                ))}
-            </ul>
+            <TodoWriteForm addTodo={addTodo}></TodoWriteForm>
+            <TodoList todos={todos} deleteTodo={deleteTodo} toggleChecked={toggleChecked}></TodoList>
         </>
     )
 }
