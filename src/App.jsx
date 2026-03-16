@@ -7,8 +7,8 @@ function App() {
 
     return (
         <>
-            <TodoWriteForm addTodo={addTodo}></TodoWriteForm>
-            <TodoList todos={todos} deleteTodo={deleteTodo} toggleChecked={toggleChecked}></TodoList>
+            <TodoWriteForm></TodoWriteForm>
+            <TodoList></TodoList>
         </>
     )
 }

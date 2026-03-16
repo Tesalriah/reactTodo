@@ -1,4 +1,8 @@
-function TodoWriteForm({ addTodo }) {
+import { useTodos } from '../hooks/useTodos'
+
+function TodoWriteForm() {
+    const { addTodo } = useTodos()
+
     const doSubmit = (e) => {
         e.preventDefault()
         const todo = e.target.todo.value
