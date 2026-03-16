@@ -6,10 +6,10 @@ function App() {
     const { addTodo, todos, deleteTodo, toggleChecked } = useTodos()
 
     return (
-        <>
+        <div className="flex flex-col">
             <TodoWriteForm></TodoWriteForm>
             <TodoList></TodoList>
-        </>
+        </div>
     )
 }
 

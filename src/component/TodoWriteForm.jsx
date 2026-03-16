@@ -18,10 +18,12 @@ function TodoWriteForm() {
     }
     return (
         <>
-            할일등록
+            <div>할일등록</div>
             <form onSubmit={doSubmit}>
-                <input type="text" name="todo" autoComplete="off" />
-                <button type="submit">추가하기</button>
+                <input type="text" name="todo" autoComplete="off" className="p-2 border border-gray-300 rounded" />
+                <button type="submit" className="p-2 border border-gray-300 rounded hover:bg-gray-200 cursor-pointer">
+                    추가하기
+                </button>
             </form>
         </>
     )

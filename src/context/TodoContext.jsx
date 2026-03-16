@@ -1,18 +1,18 @@
-import { createContext, useRef, useState } from 'react'
+import { createContext, useEffect, useState } from 'react'
+import { getStorage, setStorage } from '../utils/storage'
 
 export const TodoContext = createContext()
 
 export function TodoProvider({ children }) {
-    const [todos, setTodo] = useState([
-        { id: 3, text: '공부하기', checked: false },
-        { id: 2, text: '청소하기', checked: false },
-        { id: 1, text: '운동하기', checked: false },
-    ])
-    const lastId = useRef(3)
+    const [todos, setTodo] = useState(getStorage())
+
+    useEffect(() => {
+        setStorage(todos)
+    }, [todos])
 
     const addTodo = (text) => {
-        setTodo([{ id: lastId.current + 1, text, checked: false }, ...todos])
-        lastId.current += 1
+        const newId = todos.length > 0 ? Math.max(...todos.map((todo) => todo.id)) + 1 : 1
+        setTodo([{ id: newId, text, checked: false }, ...todos])
     }
 
     const deleteTodo = (selectedId) => {
