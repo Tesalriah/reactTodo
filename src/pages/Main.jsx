@@ -1,20 +1,20 @@
-import { useEffect, useState } from 'react'
-import TodoList from '../component/TodoList'
-import TodoWriteForm from '../component/TodoWriteForm'
+import { useEffect } from 'react'
+import TodoList from '../components/TodoList'
+import TodoWriteForm from '../components/TodoWriteForm'
+import { useTodos } from '../context/TodoContext'
 
 function Main() {
-    // const {todos, setTodos} = useState([]);
-
-    useEffect(() => {
-        fetch('https://dummyjson.com/todos')
-            .then((res) => res.json())
-            .then((res) => setTodos(res.todos))
-    },[])
+    // const { setTodos } = useTodos()
+    // useEffect(() => {
+    //     fetch('https://dummyjson.com/todos')
+    //         .then((res) => res.json())
+    //         .then((res) => setTodos(res.todos))
+    // }, [])
 
     return (
         <>
             <TodoWriteForm />
-            <TodoList/>
+            <TodoList />
         </>
     )
 }
