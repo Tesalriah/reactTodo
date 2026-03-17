@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
-import TodoList from '../components/TodoList'
-import TodoWriteForm from '../components/TodoWriteForm'
-import { useTodos } from '../context/TodoContext'
+import TodoList from '../component/TodoList'
+import TodoWriteForm from '../component/TodoWriteForm'
+// import { useTodos } from '../context/TodoContext'
 
 function Main() {
     // const { setTodos } = useTodos()
