@@ -8,7 +8,7 @@ function TodoList() {
         <>
             <ul>
                 {todos.map((todo) => (
-                    <Todoitem todo={todo} deleteTodo={deleteTodo} toggleChecked={toggleChecked}></Todoitem>
+                    <Todoitem todo={todo} key={todo.id} deleteTodo={deleteTodo} toggleChecked={toggleChecked}></Todoitem>
                 ))}
             </ul>
         </>

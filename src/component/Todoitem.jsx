@@ -3,7 +3,7 @@ import { useTodos } from '../hooks/useTodos'
 function Todoitem({ todo }) {
     const { toggleChecked, deleteTodo } = useTodos()
     return (
-        <li key={todo.id}>
+        <li>
             <input type="checkbox" checked={todo.checked} onChange={() => toggleChecked(todo.id)} />
             {todo.text}
             {todo.id}
